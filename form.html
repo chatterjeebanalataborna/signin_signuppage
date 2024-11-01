@@ -5,13 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>signin and signup </title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Sign In and Sign Up</title>
+    <style>
+        .input-group {
+            position: relative;
+        }
+
+        .input-group-text {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .input-group input {
+            padding-right: 40px; /* Add some space for the icon */
+        }
+    </style>
 </head>
 <body>
-
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form>
+            <form id="registerForm">
                 <h1>Create Account</h1>
                 <div class="social-icons">
                     <a href="https://www.google.com/" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -19,15 +40,21 @@
                     <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
-                <span>or use your email for registeration</span>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>Sign Up</button>
+                <span>or use your email for registration</span>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <div class="input-group mb-3 position-relative">
+                    <input type="password" placeholder="Password (min 8 characters, 1 uppercase, 1 number)" required id="registerPassword" class="form-control">
+                    <span class="input-group-text toggle-password" id="toggleRegisterPassword" style="cursor: pointer;">
+                        <i class="fa-solid fa-eye-slash" id="registerPasswordIcon"></i>
+                    </span>
+                </div>
+                <div id="passwordStrength">Strength: </div>
+                <button type="submit">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in">
-            <form>
+            <form id="signInForm">
                 <h1>Sign In</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -35,30 +62,41 @@
                     <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
-                <span>or use your email password</span>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <a href="#">Forget Your Password?</a>
-                <button>Sign In</button>
+                <span>or use your email and password</span>
+                <div class="input-group mb-3 position-relative">
+                    <input type="email" placeholder="Email" id="emailOrPhone" required class="form-control">
+                </div>
+                <div class="input-group mb-3 position-relative">
+                    <input type="password" placeholder="Password" id="password" required class="form-control">
+                    <span class="input-group-text toggle-password" id="toggleSignInPassword" style="cursor: pointer;">
+                        <i class="fa-solid fa-eye-slash" id="signInPasswordIcon"></i>
+                    </span>
+                </div>
+                <a href="#">Forgot Your Password?</a>
+                <div class="form-check d-flex align-items-center gap-1">
+                    <input class="form-check-input" type="checkbox" id="rememberMe" style="width: 15px; height: 15px; margin-right:19px;">
+                    <label class="form-check-label" for="rememberMe" style="font-size: 0.9rem;">Remember me</label>
+                </div>
+                <button type="submit" id="submitBtn">Sign In</button>
             </form>
         </div>
         <div class="toggle-container">
             <div class="toggle">
                 <div class="toggle-panel toggle-left">
                     <h1>Welcome Back!</h1>
-                    <p>Enter your personal details to use all of site features</p>
+                    <p>Enter your personal details to use all of the site features</p>
                     <button class="hidden" id="login">Sign In</button>
                 </div>
                 <div class="toggle-panel toggle-right">
                     <h1>Hello, Friend!</h1>
-                    <p>Register with your personal details to use all of site features</p>
+                    <p>Please sign up with your personal details if you're new to this site to access all features.</p>
                     <button class="hidden" id="register">Sign Up</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>
