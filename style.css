@@ -42,7 +42,7 @@ body{
 .container a{
     color: #333;
     font-size: 13px;
-    text-decoration: none;
+    /* text-decoration: none; */
     margin: 15px 0 10px;
 }
 
@@ -52,7 +52,7 @@ body{
     font-size: 12px;
     padding: 10px 45px;
     border: 1px solid transparent;
-    border-radius: 8px;
+    border-radius: 10px;
     font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
@@ -81,7 +81,7 @@ body{
     margin: 8px 0;
     padding: 10px 15px;
     font-size: 13px;
-    border-radius: 8px;
+    border-radius: 10px;
     width: 100%;
     outline: none;
 }
